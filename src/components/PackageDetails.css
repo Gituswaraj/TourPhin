@@ -1,0 +1,570 @@
+.package-details-overlay {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  position: relative;
+}
+
+.package-details-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background-color: #121212;
+  padding: 0 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(30, 30, 36, 0.9);
+  border: none;
+  color: #e0e0e0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: #afa375;
+  color: #121212;
+}
+
+/* Hero Section */
+.package-details-hero {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+}
+
+.package-details-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #e0e0e0;
+}
+
+.hero-content h1 {
+  font-family: 'Poiret One', cursive;
+  font-size: 3rem;
+  color: #ffd29c;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.package-type-badge {
+  display: inline-block;
+  background-color: #afa375;
+  color: #121212;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+}
+
+/* Package Details Body */
+.package-details-body {
+  padding: 30px;
+  color: #e0e0e0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Quick Info */
+.quick-info {
+  display: flex;
+  justify-content: space-around;
+  background-color: #1e1e24;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(175, 163, 117, 0.1);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-item i {
+  color: #afa375;
+}
+
+/* Destinations Section */
+.destinations-section {
+  margin-bottom: 30px;
+}
+
+.destinations-section h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #ffd29c;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.destinations-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.destination-item {
+  background-color: #1e1e24;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(175, 163, 117, 0.1);
+}
+
+.destination-item i {
+  color: #afa375;
+}
+
+/* Tabs */
+.package-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.tab-btn {
+  background-color: #1e1e24;
+  border: 1px solid rgba(175, 163, 117, 0.1);
+  color: #e0e0e0;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background-color: #afa375;
+  color: #121212;
+  border-color: #afa375;
+}
+
+.tab-btn:hover:not(.active) {
+  background-color: #2a2a30;
+}
+
+/* Tab Content */
+.tab-content {
+  background-color: #1e1e24;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(175, 163, 117, 0.1);
+}
+
+/* Overview Tab */
+.highlights-section h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #ffd29c;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.highlights-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.highlight-item i {
+  color: #afa375;
+}
+
+/* Accommodation Tab */
+.accommodation-list {
+  display: grid;
+  gap: 20px;
+}
+
+.accommodation-item {
+  background-color: #2a2a30;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(175, 163, 117, 0.1);
+}
+
+.accommodation-item h3 {
+  color: #ffd29c;
+  margin-bottom: 15px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.hotel-details {
+  display: grid;
+  gap: 10px;
+}
+
+.hotel-info,
+.room-info,
+.amenities {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hotel-details i {
+  color: #afa375;
+}
+
+/* Costs Tab */
+.cost-table {
+  display: grid;
+  gap: 15px;
+}
+
+.cost-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(175, 163, 117, 0.1);
+}
+
+.cost-item.total {
+  border-top: 2px solid #afa375;
+  border-bottom: none;
+  padding-top: 20px;
+  font-weight: bold;
+  color: #ffd29c;
+}
+
+.cost-notes {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Inclusions/Exclusions Tab */
+.inclusions-tab {
+  display: grid;
+  gap: 30px;
+}
+
+.inclusions-section h2,
+.exclusions-section h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #ffd29c;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.inclusion-list,
+.exclusion-list {
+  display: grid;
+  gap: 15px;
+}
+
+.inclusion-list li,
+.exclusion-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inclusion-list i {
+  color: #4CAF50;
+}
+
+.exclusion-list i {
+  color: #f44336;
+}
+
+/* Booking Section */
+.booking-section {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.book-now-btn {
+  background-color: #afa375;
+  color: #121212;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.book-now-btn:hover {
+  background-color: #ffd29c;
+}
+
+/* Booking Form Modal */
+.booking-form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1100;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  backdrop-filter: blur(8px);
+  overflow-y: auto;
+}
+
+.booking-form-content {
+  background-color: #1e1e24;
+  border-radius: 15px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid rgba(175, 163, 117, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin: auto;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.close-form-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  color: #e0e0e0;
+  cursor: pointer;
+  font-size: 1.5rem;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-form-btn:hover {
+  opacity: 1;
+  background: rgba(175, 163, 117, 0.2);
+  color: #afa375;
+}
+
+.booking-form-content h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #ffd29c;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.booking-form-content h3 {
+  color: #e0e0e0;
+  margin-bottom: 30px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #e0e0e0;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  background-color: #2a2a30;
+  border: 1px solid rgba(175, 163, 117, 0.1);
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #888;
+  opacity: 0.7;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #afa375;
+  box-shadow: 0 0 0 3px rgba(175, 163, 117, 0.2);
+  background-color: #2f2f36;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: rgba(175, 163, 117, 0.3);
+  background-color: #2f2f36;
+}
+
+.form-group.error input,
+.form-group.error textarea {
+  border-color: #ff4d4d;
+  background-color: rgba(255, 77, 77, 0.05);
+}
+
+.form-group.error .error-message {
+  color: #ff4d4d;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+}
+
+.submit-booking-btn {
+  background-color: #afa375;
+  color: #121212;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.submit-booking-btn:disabled {
+  background-color: #4a4a50;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.submit-booking-btn:not(:disabled):hover {
+  background-color: #c4b68c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(175, 163, 117, 0.2);
+}
+
+.submit-booking-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.submit-booking-btn:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-booking-btn:hover {
+  background-color: #ffd29c;
+}
+
+/* Responsive Design */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .package-details-hero {
+    height: 300px;
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .quick-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .package-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .tab-content {
+    padding: 20px;
+  }
+
+  .highlights-list,
+  .inclusion-list,
+  .exclusion-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.close-button-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.close-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #555;
+}
