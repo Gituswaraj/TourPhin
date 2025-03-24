@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Packages.css';
 import PackageDetails from './PackageDetails';
 import { destinations } from './Destinations';
+import { Link } from 'react-router-dom';
 
 const combinePackagesAndDestinations = (packages, destinations) => {
   const destinationCards = destinations.map(dest => ({
@@ -80,6 +81,7 @@ const Packages = ({ setCurrentPage }) => {
                     )}
                   </div>
                   <button className="view-details-btn" onClick={() => setSelectedPackage(pkg)}>View Details</button>
+                  
                 </div>
               </div>
             ))}
@@ -105,6 +107,7 @@ const Packages = ({ setCurrentPage }) => {
                     </div>
                   </div>
                   <button className="view-details-btn" onClick={() => window.location.href = `/destinations/${dest.id}`}>View Details</button>
+                  {/* <Link to={/PackageDetails}>click here</Link> */}
                 </div>
               </div>
             ))}
