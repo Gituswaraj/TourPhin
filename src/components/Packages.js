@@ -80,7 +80,7 @@ const Packages = ({ setCurrentPage }) => {
                       </div>
                     )}
                   </div>
-                  <button className="view-details-btn" onClick={() => setSelectedPackage(pkg)}>View Details</button>
+                  <Link to={`/packages/${pkg.id}`} className="view-details-btn">View Details</Link>
                   
                 </div>
               </div>
@@ -106,8 +106,7 @@ const Packages = ({ setCurrentPage }) => {
                       <i className="fas fa-calendar-alt"></i> Best Time: {dest.bestSeason}
                     </div>
                   </div>
-                  <button className="view-details-btn" onClick={() => window.location.href = `/destinations/${dest.id}`}>View Details</button>
-                  {/* <Link to={/PackageDetails}>click here</Link> */}
+                  <Link to={`/destinations/${dest.id}`} className="view-details-btn">View Details</Link>
                 </div>
               </div>
             ))}

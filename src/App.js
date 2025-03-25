@@ -6,6 +6,7 @@ import TouristGuideForm from './components/Home/TouristGuideForm';
 import Destinations from './components/Destinations';
 import AiHelp from './components/AiHelp';
 import Packages from './components/Packages';
+import PackageDetails from './components/PackageDetails';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
@@ -36,8 +37,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/destinations" element={<Destinations />} />
+          <Route path="/destinations/:id" element={<Destinations />} />
           <Route path="/aihelp" element={<AiHelp />} />
           <Route path="/packages" element={<Packages />} />
+          <Route path="/packages/:id" element={<PackageDetails />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/login" element={<LoginPage />} />
