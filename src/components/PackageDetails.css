@@ -524,34 +524,63 @@
   }
 }
 
-@media (max-width: 768px) {
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
   .package-details-hero {
     height: 300px;
     padding: 20px;
   }
-
+  
   .hero-content h1 {
     font-size: 2rem;
   }
-
+  
+  .package-details-body {
+    padding: 15px;
+  }
+  
   .quick-info {
     flex-direction: column;
     gap: 15px;
+    padding: 15px;
   }
-
+  
   .package-tabs {
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    flex-wrap: wrap;
   }
-
-  .tab-content {
-    padding: 20px;
+  
+  .tab-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
   }
-
-  .highlights-list,
-  .inclusion-list,
-  .exclusion-list {
+  
+  .attractions-grid,
+  .gallery-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .reviews-summary {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .overall-rating {
+    padding-right: 0;
+    padding-bottom: 20px;
+    border-right: none;
+    border-bottom: 1px solid rgba(175, 163, 117, 0.1);
+  }
+  
+  .booking-form-container {
+    padding: 15px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-group {
+    width: 100%;
   }
 }
 

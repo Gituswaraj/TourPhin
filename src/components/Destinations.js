@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Destinations.css';
+import { Link } from 'react-router-dom'; // Add this import
 
 // Move destinations array outside the component and export it
 export const destinations = [
@@ -534,6 +535,9 @@ const destinations = [
       setIsLoading(false);
     }, 1500);
     
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     return () => clearTimeout(timer);
   }, []);
 
@@ -906,9 +910,10 @@ const destinations = [
                       <span className="rating-value">{destination.rating}</span>
                     </div>
                     <p className="card-description">{destination.description}</p>
-                    <button className="card-button">
+                    {/* Replace the button with Link component */}
+                    <Link to={`/packages/dest_${destination.id}`} className="card-button">
                       View Details <i className="fas fa-arrow-right"></i>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))

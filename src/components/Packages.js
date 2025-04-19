@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './Packages.css';
 import PackageDetails from './PackageDetails';
+// Change the incorrect import
+// FROM: import { destinations } from './Destinations';
+// TO: import { destinations } from './Destinations';
+
 import { destinations } from './Destinations';
 import { Link } from 'react-router-dom';
 

@@ -42,7 +42,7 @@ const AboutUs = () => {
       {/* Why Choose Us Section */}
       <section className="about-section why-choose-us">
         <div className="about-container">
-          <div className="section-header">
+          <div className="section-header" id='Why_Choose_Tourphn'>
             <h2>Why Choose TourPhin</h2>
             <div className="header-line"></div>
           </div>
@@ -110,20 +110,20 @@ const AboutUs = () => {
           <div className="team-grid">
             <div className="team-member">
               <div className="member-image">
-                <img src="\images.png" alt="Team Member" />
+                <img src="https://avatar.iran.liara.run/public/7" alt="Team Member" />
               </div>
               <h3>Swaraj Kumar</h3>
               <p className="member-role">..........</p>
               <p className="member-bio">With over 15 years of experience in the travel industry, Swaraj brings expertise and vision to TourPhin.</p>
               <div className="member-social">
-                <a href="https://www.linkedin.com/in/swaraj-kumar-07470b259/"><i className="fab fa-linkedin-in"></i></a>
+                <a href="#"><i className="fab fa-linkedin-in"></i></a>
                 <a href="#"><i className="fab fa-twitter" ></i></a>
               </div>
             </div>
             
             <div className="team-member">
               <div className="member-image">
-                <img src="\images.png" alt="Team Member" />
+                <img src="https://avatar.iran.liara.run/public/7" alt="Team Member" />
               </div>
               <h3>Abhisekh Yadav</h3>
               <p className="member-role">.........</p>
@@ -136,7 +136,7 @@ const AboutUs = () => {
             
             <div className="team-member">
               <div className="member-image">
-                <img src="\images.png" alt="Team Member" />
+                <img src="https://avatar.iran.liara.run/public/7" alt="Team Member" />
               </div>
               <h3>Srajan Srivastav</h3>
               <p className="member-role">...............</p>
@@ -147,6 +147,18 @@ const AboutUs = () => {
               </div>
             </div>
             
+            <div className="team-member">
+              <div className="member-image">
+                <img src="https://avatar.iran.liara.run/public/7" alt="Team Member" />
+              </div>
+              <h3>Saurabh Roy</h3>
+              <p className="member-role">...............</p>
+              <p className="member-bio">Saurabh passion for exploration helps him create unique and immersive travel experiences.</p>
+              <div className="member-social">
+                <a href="https://www.linkedin.com/in/saurabh-roy-840598273/" target="_blank"><i className="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i className="fab fa-twitter"></i></a>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -167,7 +179,7 @@ const AboutUs = () => {
                 <p>Our trip to Rajasthan with TourPhin was absolutely magical. The attention to detail, the knowledgeable guides, and the unique experiences made it a journey to remember.</p>
               </div>
               <div className="testimonial-author">
-                <img src="\images.png" alt="Testimonial Author" />
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Testimonial Author" />
                 <div>
                   <h4>Meera Kapoor</h4>
                   <p>Delhi, India</p>
@@ -181,10 +193,10 @@ const AboutUs = () => {
                 <p>As a solo traveler, I was looking for a safe and enriching experience. TourPhin delivered beyond my expectations with their well-organized tours and friendly guides.</p>
               </div>
               <div className="testimonial-author">
-                <img src="\images.png" alt="Testimonial Author" />
+                <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Testimonial Author" />
                 <div>
-                  <h4>Ayush Jha</h4>
-                  <p>Amritsar, India</p>
+                  <h4>James Wilson</h4>
+                  <p>London, UK</p>
                 </div>
               </div>
             </div>
@@ -192,13 +204,13 @@ const AboutUs = () => {
             <div className="testimonial-card">
               <div className="testimonial-content">
                 <i className="fas fa-quote-left quote-icon"></i>
-                <p>The Kerala backwaters tour was a highlight of our honeymoon. TourPhin arranged everything perfectly, from the houseboat stay to the cultural performances.I loved it.........</p>
+                <p>The Kerala backwaters tour was a highlight of our honeymoon. TourPhin arranged everything perfectly, from the houseboat stay to the cultural performances.</p>
               </div>
               <div className="testimonial-author">
-                <img src="\images.png" alt="Testimonial Author" />
+                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Testimonial Author" />
                 <div>
-                  <h4>Sarah & Dinesh Jain</h4>
-                  <p>Bali</p>
+                  <h4>Sarah & David Chen</h4>
+                  <p>Singapore</p>
                 </div>
               </div>
             </div>

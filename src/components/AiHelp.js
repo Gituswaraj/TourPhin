@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import OpenAI from "openai";
 import './AiHelp.css';
-import { destinations } from './Destinations';  // Add this import
+import { destinations } from './Destinations';  // Fixed import path
 
 const AiHelp = () => {
   const [prompt, setPrompt] = useState('');
@@ -57,6 +57,11 @@ const AiHelp = () => {
           }
         ],
         "summary": "A brief summary of the recommendations"
+        1) summarize the destination response provided by you try to make it short
+        2) Always make the summary in the desired language as the user prompt (always match the language of user).
+        3) Give summaries like a close friend would say in a friendly manner.
+        4) if the budget is low give user recommandation to raise the budget and tell them the minimum destination price is 12000 and show him the single destination with least price.
+        5) if the budget is high give user recommandation to reduce the budget and tell him the maximum destination price is 12000 and show him the single destination with highest price.
       }
       
       Return multiple destination cards that match the criteria, not just one.

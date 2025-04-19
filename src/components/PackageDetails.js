@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './PackageDetails.css';
+// Change the incorrect import
+// FROM: import { destinations } from './Destinations';
+// TO: import { destinations } from './Destinations';
+
 import { destinations } from './Destinations';
 
 const PackageDetails = ({ package: propPackage, onClose: propOnClose }) => {
+
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+  
   const { id } = useParams();
   const navigate = useNavigate();
   const [pkg, setPkg] = useState(propPackage);
