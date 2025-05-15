@@ -3,9 +3,9 @@ import './Packages.css';
 import PackageDetails from './PackageDetails';
 // Change the incorrect import
 // FROM: import { destinations } from './Destinations';
-// TO: import { destinations } from './Destinations';
+// TO: import { destinations } from '../Destinations/Destinations';
 
-import { destinations } from './Destinations';
+import { destinations } from '../Destinations/Destinations';
 import { Link } from 'react-router-dom';
 
 const combinePackagesAndDestinations = (packages, destinations) => {

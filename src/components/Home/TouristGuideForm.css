@@ -48,14 +48,14 @@
 .close-btn {
   background: transparent;
   border: none;
-  color: #1c160e;
+  color: #e0e0e0;
   font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .close-btn:hover {
-  color: #18130b;
+  color: #ffd29c;
   transform: scale(1.1);
 }
 
@@ -67,7 +67,7 @@ form {
 
 .form-group {
   display: flex;
-
+  flex-direction: column;
   gap: 8px;
 }
 
@@ -81,7 +81,7 @@ form {
 }
 
 label {
-  color: #e0e0e0 !important;
+  color: #e0e0e0;
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   font-size: 0.95rem;
@@ -116,7 +116,7 @@ textarea {
 }
 
 .checkbox-group input {
-  width: 18px !important;
+  width: 18px;
   height: 18px;
   accent-color: #afa375;
 }
@@ -195,4 +195,3 @@ textarea {
     padding: 10px;
   }
 }
-

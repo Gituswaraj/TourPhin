@@ -1,24 +1,23 @@
-
-
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import './index.css';
-import TouristGuideButton from './components/Home/TouristGuideButton';
 import TouristGuideForm from './components/Home/TouristGuideForm';
-import Destinations from './components/Destinations';
-import AiHelp from './components/AiHelp';
-import Packages from './components/Packages';
-import PackageDetails from './components/PackageDetails';
-import Footer from './components/Footer';
-import AboutUs from './components/AboutUs';
-import ContactUs from './components/ContactUs';
-import LoginPage from './components/LoginP or Reg/loginPage';
+import Destinations from './components/Destinations/Destinations';
+import AiHelp from './components/Ai Help/AiHelp';
+import Packages from './components/Packages/Packages';
+import PackageDetails from './components/Packages/PackageDetails';
+import Footer from './components/Footer/Footer';
+import AboutUs from './components/About us/AboutUs';
+import ContactUs from './components/Contact Us/ContactUs';
+import LoginPage from './components/LoginP or Reg/loginP';
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/navbar';
-import SignUp from './components/LoginP or Reg/signUp'; // Import the SignUp component    
-import Guides from './components/Guides/Guides';
+import SignUp from './components/LoginP or Reg/signUp';
+import './App.css';
 import UserProfile from './components/Profile/UserProfile';
-
+import Guides from './components/Guides/Guides';
+import ProtectedRoute from './components/Proctectd/ProtectedRoute';
+import supabase from './helper/supabaseClient';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,18 +30,61 @@ function ScrollToTop() {
 // Create a conditional footer component
 function ConditionalFooter() {
   const { pathname } = useLocation();
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
-  // Don't render footer on home page
-  if (pathname === '/') {
+  // Check for screen size changes
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // Don't render footer on home page or on mobile devices
+  if (pathname === '/' || isMobile) {
     return null;
   }
   
-  // Render footer on all other pages
+  // Render footer on all other pages and non-mobile devices
   return <Footer />;
 }
+
 function App() {
   const [showTouristGuideForm, setShowTouristGuideForm] = React.useState(false);
-  const destinationsRef = React.useRef(null);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    // Check if user is already logged in
+    const checkUser = async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        setUser(user);
+      } catch (error) {
+        console.error('Error checking user:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkUser();
+
+    // Set up auth state listener
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setUser(session?.user || null);
+      }
+    );
+
+    // Clean up listener on unmount
+    return () => {
+      if (authListener && authListener.subscription) {
+        authListener.subscription.unsubscribe();
+      }
+    };
+  }, []);
 
   const handleTouristGuideClick = () => {
     setShowTouristGuideForm(true);
@@ -52,39 +94,71 @@ function App() {
     setShowTouristGuideForm(false);
   };
 
+  if (loading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        backgroundColor: '#121212',
+        color: '#ffd29c'
+      }}>
+        <div>
+          <div style={{ fontSize: '40px', textAlign: 'center', marginBottom: '15px' }}>
+            <i className="fas fa-spinner fa-spin"></i>
+          </div>
+          <p>Loading application...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <Router>
-      <div id="wrapper">
-         {/* Navbar */}
-        <Navbar handleTouristGuideClick={handleTouristGuideClick} />
+      <ScrollToTop />
+      {user && <Navbar handleTouristGuideClick={handleTouristGuideClick} />}
 
-        {/* Routes */}
-        <Routes>
+      {/* Routes */}
+      <Routes>
+        {/* Public routes */}
+        <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/" replace />} />
+        <Route path="/signUp" element={!user ? <SignUp /> : <Navigate to="/" replace />} />
+        
+        {/* Protected routes */}
+        <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Home />} />
           <Route path="/destinations" element={<Destinations />} />
-          <Route path="/destinations/:id" element={<Destinations />} />
           <Route path="/aihelp" element={<AiHelp />} />
           <Route path="/packages" element={<Packages />} />
           <Route path="/packages/:id" element={<PackageDetails />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path='/signUp' element={<SignUp/>}/>
           <Route path="/ai-help" element={<AiHelp />} />
-          <Route path='/profile' element={<UserProfile />} />
-           {/* Update the guides route to pass the handleTouristGuideClick prop */}
-        <Route path='/guides' element={<Guides handleTouristGuideClick={handleTouristGuideClick} />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs handleTouristGuideClick={handleTouristGuideClick} />} />
+          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/guides" element={<Guides handleTouristGuideClick={handleTouristGuideClick} />} />
+        </Route>
+        
+        {/* Catch all route - redirect to login if not logged in, or home if logged in */}
+        <Route path="*" element={user ? <Navigate to="/" replace /> : <Navigate to="/login" replace />} />
+      </Routes>
+
+      {/* Show the tourist guide form when button is clicked */}
+      {showTouristGuideForm && <TouristGuideForm onClose={handleCloseForm} />}
       
-          {/* Add more routes as needed */}
-        </Routes>
-
-        {/* Tourist Guide Form Modal */}
-        {showTouristGuideForm && <TouristGuideForm onClose={handleCloseForm} />}
-
-        <Footer />
-      </div>
+      {/* Only show footer if user is logged in */}
+      {user && <ConditionalFooter />}
+      {/* Bottom Navigation for Mobile */}
+      {/* Only show bottom navigation if user is logged in and on mobile */}
+      {user && (
+        <div className="test">
+          <Link to="/"><i className="fas fa-home"></i><span>Home</span></Link>
+          <Link to="/destinations"><i className="fas fa-map-marker-alt"></i><span>Destinations</span></Link>
+          <Link to="/aihelp"><i className="fas fa-robot"></i><span>AI Help</span></Link>
+          <Link to="/packages"><i className="fas fa-suitcase-rolling"></i><span>Packages</span></Link>
+          <Link to="/profile"><i className="fas fa-user-circle"></i><span>Profile</span></Link>
+        </div>
+      )}
     </Router>
   );
 }

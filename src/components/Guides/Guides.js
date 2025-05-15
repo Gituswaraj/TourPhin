@@ -497,7 +497,7 @@ const Guides = ({ handleTouristGuideClick }) => {
                         <i className="fas fa-comment"></i> 
                         {showComments && selectedGuide === guide.id ? 'Hide Reviews' : 'Show Reviews'}
                       </button>
-                      <Link to={`/contact?guide=${guide.id}`} className="action-btn book-btn" onClick={(e) => e.stopPropagation()}>
+                      <Link to={`/contact-us?guide=${guide.id}`} className="action-btn book-btn" onClick={(e) => e.stopPropagation()}>
                         <i className="fas fa-calendar-check"></i> Book This Guide
                       </Link>
                     </div>

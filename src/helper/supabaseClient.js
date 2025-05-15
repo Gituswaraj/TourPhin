@@ -1,10 +1,9 @@
-import {createClient} from  "@supabase/supabase-js"
+import { createClient } from '@supabase/supabase-js';
 
-// Using direct URLs for development - replace with your actual Supabase project URL and anon key
-const supabaseURL = "https://your-project-id.supabase.co";
-const supabaseKey = "your-supabase-anon-key";
 
-// Create the Supabase client
-const supabase = createClient(supabaseURL, supabaseKey);
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default supabase;
